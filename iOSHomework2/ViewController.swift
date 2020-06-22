@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         let member = nameTextField.text!
         
         // MARK: -   1️⃣ تحت الخط membersNamesArray إلي المصفوفه memberقم بإضافة المتغير
+        membersNamesArray.append(member)
+    
         
         
         
@@ -34,7 +36,7 @@ class ViewController: UIViewController {
         
         // MARK: -  4️⃣ functionCall داخل المتغير  secretNameLetter قم باستدعاء الدالة
         
-        var functionCall = ""
+        let functionCall = secretNameLetter(memberNameArray: membersNamesArray)
         
         
         // MARK: -   النهاية
@@ -52,7 +54,7 @@ class ViewController: UIViewController {
         
         // MARK: -  5️⃣ functionCall داخل المتغير  secretNameEmoji قم باستدعاء الدالة
         
-        var functionCall = ""
+        var functionCall = secretNameEmoji(memberNameArray: membersNamesArray)
         
         // MARK: -   النهاية
         
@@ -65,20 +67,64 @@ class ViewController: UIViewController {
     
     
     // MARK: - 2️⃣ تحت هذا الخط secretNameLetter قم بكتابة الداله
-    
+    func secretNameLetter(memberNameArray: [String])-> String {
+        var member: [String] = []
+        
+        for i in
+            membersNamesArray {
+                member.append(String(i.prefix(1)).uppercased())
+                
+                
+    }
+        return member.joined()
+    }
     
     // MARK: -   النهاية
     
     
     
     
-    
+    let emojiDictionary : [String: String] =
+            [
+            "A":"😀",
+            "B":"😆",
+            "C":"😇",
+            "D":"🤣",
+            "E":"😂",
+            "F":"😊",
+            "G":"😍",
+            "H":"🧐",
+            "I":"🤪",
+            "J":"😜",
+            "K":"😡",
+            "L":"😝",
+            "M":"😋",
+            "N":"😤",
+            "O":"🤯",
+            "P":"🤔",
+            "Q":"🤕",
+            "R":"🤠",
+            "S":"🤫",
+            "T":"😶",
+            "U":"🙄",
+            "V":"😵",
+            "W":"😷",
+            "X":"🥶",
+            "Y":"😳",
+            "Z":"😨"
+    ]
     // MARK: - 3️⃣ تحت هذا الخط secretNameEmoji قم بكتابة الداله
-    
-    
-    // MARK: -   النهاية
-    
-    
-    
-}
+     func secretNameEmoji(memberNameArray: [String])-> String {
+        var member = secretNameLetter(memberNameArray: memberNameArray)
+        var emoji: [String] = []
+        for letter in member {
+                
+            emoji.append(emojiDictionary["\(letter)"] ?? "")
+                
 
+        }
+         return emoji.joined()
+
+}
+       // MARK: -   النهاية
+}
